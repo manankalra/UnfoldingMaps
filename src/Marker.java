@@ -1,8 +1,9 @@
 /*
- * Adding markers to desired places in India
+ * Adding markers to some places in India
  * 
  * @author Manan Kalra
  */
+
 import de.fhpotsdam.unfolding.*;
 import de.fhpotsdam.unfolding.geo.Location;
 import de.fhpotsdam.unfolding.marker.*;
@@ -15,7 +16,7 @@ public class Marker extends PApplet{
 	Location Bhiwani = new Location(28.7990f, 76.1335f);
 	public void setup(){
 		size(800, 600);
-		map = new UnfoldingMap(this, 0, 0, 800, 600, new Google.GoogleMapProvider());
+		map = new UnfoldingMap(this, 0, 0, 800, 600, new Microsoft.RoadProvider());
 		MapUtils.createDefaultEventDispatcher(this, map);
 		map.zoomAndPanTo(6, new Location(20.5937f, 78.9629f));
 		SimplePointMarker dehradunMarker = new SimplePointMarker(Dehradun);
@@ -25,5 +26,4 @@ public class Marker extends PApplet{
 	public void draw(){
 		map.draw();
 	}
-
 }

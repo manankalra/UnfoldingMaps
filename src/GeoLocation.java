@@ -5,6 +5,7 @@
  * 
  * Zooming into UPES, Dehradun, Uttarakhand, India
  * Restricting interactions to 30 km
+ * Zooming restrictions are also specified
  * 
  * @author Manan Kalra
  */
@@ -20,6 +21,8 @@ public class GeoLocation extends PApplet{
 	int zoomLevel = 20;
 	Location Dehradun = new Location(30.416771f, 77.9661903f);
 	float maxPanningDistance = 30; //in km
+	int down = 15;
+	int up = 25;
 	public void setup(){
 		size(800, 600);
 		AbstractMapProvider provider = new Microsoft.AerialProvider();
@@ -27,6 +30,8 @@ public class GeoLocation extends PApplet{
 		MapUtils.createDefaultEventDispatcher(this, map); //adds interactivity of the map with mouse and keyboard
 		map.zoomAndPanTo(zoomLevel, Dehradun); //for showing a particular location
 		map.setPanningRestriction(Dehradun, maxPanningDistance); //restricting the map interactions if we only have data for a specific area
+	    map.setZoomRange(down, up); //zooming restrictions
+		map.setTweening(true);// for simple animations between different zoom levels
 	}
 	public void draw(){
 		map.draw();
